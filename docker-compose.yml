@@ -23,6 +23,7 @@ x-n8n: &service-n8n
     - N8N_USER_MANAGEMENT_JWT_SECRET
     - N8N_SECURE_COOKIE=false
     - OLLAMA_HOST=ollama:11434
+    - WEBHOOK_URL=${NGROK_URL}
 
 x-ollama: &service-ollama
   image: ollama/ollama:latest
@@ -204,6 +205,21 @@ services:
         condition: service_healthy
       n8n-import:
         condition: service_completed_successfully
+
+  ngrok:
+    container_name: ngrok
+    image: ngrok/ngrok:latest
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: 
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    networks:
+      - n8n-network
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
 
   qdrant:
     image: qdrant/qdrant
