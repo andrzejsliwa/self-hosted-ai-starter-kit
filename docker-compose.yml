@@ -202,7 +202,7 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      n8n-import:
+      n8n-restore:
         condition: service_completed_successfully
 
   ngrok:
