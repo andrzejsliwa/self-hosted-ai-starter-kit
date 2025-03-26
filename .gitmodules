@@ -1,3 +1,4 @@
 [submodule "n8n/backup"]
 	path = n8n/backup
-	url = https://github.com/andrzejsliwa/n8n-backup.git
+  url = https://github.com/andrzejsliwa/n8n-backup.git
+  update = merge
