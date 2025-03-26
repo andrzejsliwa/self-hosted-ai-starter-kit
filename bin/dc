@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+op.exe run --no-masking --env-file="./.env" docker-compose $@
