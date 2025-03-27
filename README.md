@@ -49,6 +49,10 @@ cd self-hosted-ai-starter-kit
 
 ### Running n8n using Docker Compose
 
+#### Helper for running docker-compose
+
+In order to streamline fetching safely environment variables from 1passwords I have introduced helper `bin/dc` which is just wrapping 1password CLI execution to load environment variables
+
 #### For Nvidia GPU users
 
 ```
@@ -267,4 +271,3 @@ can:
   pro, the community and our team are ready to support with any challenges.
 - **Propose Ideas**: Have an idea for a feature or improvement? Let us know!
   We're always eager to hear what you'd like to see next.
-
